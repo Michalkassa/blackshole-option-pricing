@@ -1,0 +1,46 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/output.css') }}">
+</head>
+
+{% block content %}
+<div class="flex justify-center align-middle flex-col">
+<form action="#" method="post" class="flex align-middle justify-center flex-col  items-center">
+        <div class="w-full max-w-sm min-w-[200px]">
+            <label>Asset Price</label>
+            <input required class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" type="number" name="asset_price" step="any" value="{{asset_price}}"/>
+        </div>
+        <div class="w-full max-w-sm min-w-[200px]">
+            <label>Strike Price</label>
+            <input required class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" type="number" name="strike_price" step="any" value="{{strike_price}}"/>  
+        </div>
+        <div class="w-full max-w-sm min-w-[200px]">
+            <label>Interest Rate</label>
+            <input required class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" type="number" name="interest_rate" step="any" value="{{interest_rate}}"/> 
+        </div>
+        <div class="w-full max-w-sm min-w-[200px]">
+            <label>Time to Maturity in Years</label>
+            <input required class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" type="number" name="time_to_maturity" step="any" value="{{time_to_maturity}}"/>
+        </div>
+        <div class="w-full max-w-sm min-w-[200px]">
+            <label>Volatility</label>
+            <input required class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" type="number" name="volatility" step="any" value="{{volatility}}"/>
+        </div>
+        <button type="submit" class="rounded-md border border-slate-300 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none my-4" >Calculate</button>
+</form>
+<div class="flex flex-row align-middle items-center justify-center gap-4">
+    <div class="flex flex-col rounded-3xl bg-green-900 text-center px-12 py-6">
+        <p class="text-white">Call:</p>
+        <h1 class="text-6xl text-white">{{call}}</h1>
+    </div>
+    <div class="rounded-3xl bg-red-900 text-center px-12 py-6">
+        <p class="text-white">Put:</p>
+       <h1 class="text-6xl text-white">{{put}}</h1>     
+    </div>
+
+</div>
+</div>
+{% endblock %}
